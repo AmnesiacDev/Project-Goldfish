@@ -9,4 +9,6 @@ COPY . /app
 # Install the application dependencies
 RUN pip install -r requirements.txt
 
-EXPOSE "python main.py"
+EXPOSE 8000
+
+CMD "python main.py"
