@@ -11,7 +11,7 @@ from nextcord import Intents, File, ButtonStyle, Embed, Color, SelectOption, Int
 intents = Intents.all()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
-
+serverId = os.environ["SERVER_ID"]
 color_class = [Color.blue(), Color.red(), Color.green(), Color.magenta(), Color.dark_magenta(), Color.dark_grey(),
                Color.dark_green(), Color.dark_gold(), Color.orange(), Color.purple()]
 endTicketImage = ""
@@ -77,7 +77,7 @@ async def bot_config(interaction: Interaction, mod_role: str = "", welcome_image
         await interaction.response.send_message("You do not have permission to use this command")
 
 
-@bot.slash_command(guild_ids=[999106007919755345])
+@bot.slash_command(guild_ids=[serverId])
 async def create_ticket(interaction: Interaction,
                         color: int = SlashOption(name="color", choices={"Blue": 0, "Red": 1, "Green": 2, "Pink": 3,
                                                                         "Magenta": 4, "Gray": 5, "Dark green": 6,
@@ -106,7 +106,7 @@ async def create_ticket(interaction: Interaction,
         await interaction.response.send_message("No permission")
 
 
-@bot.slash_command(guild_ids=[999106007919755345])
+@bot.slash_command(guild_ids=[serverId])
 async def create_embed(interaction: Interaction,
                        color: int = SlashOption(name="color", choices={"Blue": 0, "Red": 1, "Green": 2, "Pink": 3,
                                                                        "Magenta": 4, "Gray": 5, "Dark green": 6,
@@ -126,7 +126,7 @@ async def create_embed(interaction: Interaction,
         print("something went wrong")
 
 
-@bot.slash_command(guild_ids=[999106007919755345])
+@bot.slash_command(guild_ids=[serverId])
 async def punishment(interaction: Interaction, user_id: str,
                      type: int = SlashOption(name="punishment", choices={"Mute": 0, "Kick": 1, "Ban": 2, "Un-ban": 3,
                                                                          "Un-mute": 4}),
