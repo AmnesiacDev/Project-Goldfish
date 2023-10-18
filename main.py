@@ -248,4 +248,4 @@ async def on_member_remove(member):
                 await channel.send(f'{member.mention}', embed=embed)
 
 
-bot.run("MTE2MTY0NDAwOTcxMDcwMjYwMw.G99cEN.fAEKEnM2H4ctOdrAFmep-r2YOqZgrRLS-I5vI0")
+bot.run(os.environ["TOKEN"])
