@@ -1,1 +1,3 @@
-worker: python3 main.py
+FROM python:3
+
+CMD python3 main.py
