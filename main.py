@@ -27,13 +27,13 @@ punishmentLogs = ""
 creatorId = 991043009070125166
 
 
-@bot.slash_command(guild_ids=[999106007919755345])
+@bot.slash_command(guild_ids=[int(serverId)])
 async def test(interaction: Interaction):
     model = Tickets.EndReason()
     await interaction.response.send_modal(model)
 
 
-@bot.slash_command(guild_ids=[999106007919755345])
+@bot.slash_command(guild_ids=[int(serverId)])
 async def bot_config(interaction: Interaction, mod_role: str = "", welcome_image: str = "", welcome_channel: str = "",
                      goodbye_image: str = "", goodbye_channel: str = "", message_logs: str = "",
                      punishment_logs: str = "", end_ticket_image: str = "", welcome_message: str = "",
@@ -77,7 +77,7 @@ async def bot_config(interaction: Interaction, mod_role: str = "", welcome_image
         await interaction.response.send_message("You do not have permission to use this command")
 
 
-@bot.slash_command(guild_ids=[serverId])
+@bot.slash_command(guild_ids=[int(serverId)])
 async def create_ticket(interaction: Interaction,
                         color: int = SlashOption(name="color", choices={"Blue": 0, "Red": 1, "Green": 2, "Pink": 3,
                                                                         "Magenta": 4, "Gray": 5, "Dark green": 6,
@@ -106,7 +106,7 @@ async def create_ticket(interaction: Interaction,
         await interaction.response.send_message("No permission")
 
 
-@bot.slash_command(guild_ids=[serverId])
+@bot.slash_command(guild_ids=[int(serverId)])
 async def create_embed(interaction: Interaction,
                        color: int = SlashOption(name="color", choices={"Blue": 0, "Red": 1, "Green": 2, "Pink": 3,
                                                                        "Magenta": 4, "Gray": 5, "Dark green": 6,
@@ -126,7 +126,7 @@ async def create_embed(interaction: Interaction,
         print("something went wrong")
 
 
-@bot.slash_command(guild_ids=[serverId])
+@bot.slash_command(guild_ids=[int(serverId)])
 async def punishment(interaction: Interaction, user_id: str,
                      type: int = SlashOption(name="punishment", choices={"Mute": 0, "Kick": 1, "Ban": 2, "Un-ban": 3,
                                                                          "Un-mute": 4}),
